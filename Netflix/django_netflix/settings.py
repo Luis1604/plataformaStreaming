@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'django_netflix.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'bdnotflix',
+        'USER': 'luis',
+        'PASSWORD': 'eo8CS572WISx7Bexm2h1YaZwv0G7yFrl',
+        'HOST': 'dpg-ceibid02i3mt7ql4lppg-a.oregon-postgres.render.com',
+        'PORT': '5432',
     }
 }
 
