@@ -35,8 +35,8 @@ jobs:
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
         with:
-          name: python-app
-          path: |
+          name: django_netflix
+          path: Netflix/django_netflix
             . 
             !venv/
 
@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'notflixstreaming'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9166425DC1814AC884DE3911CCE663D2 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C756C0F4745447B6BAD61385F68DD264 }}
