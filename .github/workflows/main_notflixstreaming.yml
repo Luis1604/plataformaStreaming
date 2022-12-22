@@ -35,8 +35,8 @@ jobs:
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
         with:
-          name: python-app
-          path: |
+          name: django_netflix
+          path: Netflix/django_netflix
             . 
             !venv/
 
