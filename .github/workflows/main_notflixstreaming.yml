@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'notflixstreaming'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7FDD79FA27FA4FAC9FCB5D47DE8A56AD }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9166425DC1814AC884DE3911CCE663D2 }}
