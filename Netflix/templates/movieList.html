@@ -13,7 +13,7 @@ Netflix
 
     {% include 'partials/navbar.html' %}
     <main class='bg-primary_black min-h-screen w-full'>
-        <section class="h-screen relative bg-no-repeat pb-8 pl-6 flex  items-end bg-cover" style="background-image: url('{% static 'movie.webp' %}');">
+        <section class="h-screen relative bg-no-repeat pb-8 pl-6 flex  items-end bg-cover" style="background-image: url('{% static 'movie3.jpg' %}');">
             <div>
                 <h2 class="text-6xl font-semibold text-white my-4">
                     {{show_case.title}}
@@ -49,7 +49,7 @@ Netflix
         <section class='bg-primary_black  min-h-screen flex justify-center py-10'>
             <div class="p-8 w-10/12 relative" >
                 <h2 class="text-gray-200 text-2xl font-medium">
-                    Popular en Netflix
+                    Películas Disponibles
                 </h2>
                 <div class="flex   items-center min-w-full  movie_lis">
                     {% for movie in movies %}
