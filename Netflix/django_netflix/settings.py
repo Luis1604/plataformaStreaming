@@ -1,6 +1,10 @@
 
 from pathlib import Path
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+import cloudinary_storage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'core',
-
+    'cloudinary_storage',
+    'cloudinary',
     # thir party apps
     'allauth',
     'allauth.account',
@@ -89,6 +94,13 @@ DATABASES = {
     }
 }
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dczjfqnms',
+    'API_KEY': '897467218382494',
+    'API_SECRET': '-vqNOe8v0U5cYj6WC7aFJ4UqORs'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -135,8 +147,7 @@ MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
 MEDIA_URL='/media/'
 
 STATICFILES_DIRS=[
-    BASE_DIR/'static',
-    BASE_DIR/'media'
+    BASE_DIR/'static'
 ]
 
 # Auth stting

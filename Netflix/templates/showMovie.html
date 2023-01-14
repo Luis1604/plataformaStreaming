@@ -22,7 +22,6 @@ Peliculas
         const url =new URL(location.href)
         
         const video_param = parseInt(url.searchParams.get("epi")) ? parseInt(url.searchParams.get("epi")) : 0
-
-        videoEl.setAttribute('src',`/media/${movie_data[video_param].file}`)
+        videoEl.setAttribute('src',`${movie_data[video_param].file}`)
     </script>
 {% endblock content %}

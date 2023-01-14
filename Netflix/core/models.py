@@ -37,7 +37,8 @@ class Movie(models.Model):
 
 class Video(models.Model):
     title:str = models.CharField(max_length=225,blank=True,null=True)
-    file=models.FileField(upload_to='movies')
+    file:str = models.CharField(max_length=1000,blank=True,null=True)
+    #file=models.FileField(upload_to='movies')
     def __str__(self):
         return self.title
     
