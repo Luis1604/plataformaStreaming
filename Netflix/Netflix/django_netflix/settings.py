@@ -25,7 +25,7 @@ SECRET_KEY = '$d6%u-0b2yym)nqvd#^jxk@m@rqn8bfbhxh2*kz!tbivh9&-c0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['notflixstreaming.onrender.com']
 
 
 # Application definition
@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'core',
+    'axes',
+    'django_session_timeout',
 
     # thir party apps
     'allauth',
@@ -54,6 +56,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
+    'axes.middleware.FailedLoginMiddleware'
 ]
 
 ROOT_URLCONF = 'django_netflix.urls'
@@ -71,6 +76,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
             ],
         },
     },
@@ -108,13 +114,35 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#expiracion de sesion
+SESSION_TIMEOUT = 900
+SESSION_TIMEOUT_REDIRECT = '/'
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY_GRACE_PERIOD = 1
+SESSION_COOKIE_AGE = 900
+SESSION_COOKIE_DOMAIN = 'notflixstreaming.onrender.com'
 
+# Limite de intentos
+AXES_LOGIN_FAILURE_LIMIT = 5
+
+AXES_LOCK_OUT_AT_FAILURE = False
+
+AXES_USE_USER_AGENT = False
+
+# Secure
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_HSTS_SECONDS = 60
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True
 
@@ -147,6 +175,11 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
   
 ]
+
+LANGUAGES = (
+    ('en', _('English')),
+    ('es', _('Spanish')),
+)
 
 SITE_ID=1
 
